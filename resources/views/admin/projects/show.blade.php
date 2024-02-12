@@ -5,13 +5,13 @@
 @endsection
 
 @section('content')
-    <div class="container h-100">
+    <div id="show" class="container h-100">
         <div class="row justify-content-between h-100">
             <div class="col-12 d-flex  align-items-center justify-content-start">
                 <h1>{{ $project->title }}</h1>
             </div>
             {{-- info --}}
-            <div class="col-4 pe-3 d-flex align-items-center">
+            <div class="col-4 pe-3">
                 {{-- descrione --}}
                 <div class="description">
                     <h3>Description:</h3>
@@ -21,7 +21,17 @@
                 {{-- type --}}
                 <div class="type">
                     <h3>Type:</h3>
-                    <div class="mb-3">{{ $project->type?->title }}</div>
+                    <div class="mb-3">{{ $project->type?->title ?: 'This project has no types' }}</div>
+                </div>
+
+                {{-- technology --}}
+                <div class="technology">
+                    <h3>Technologies:</h3>
+                    <ul class="list-group list-group-flush">
+                        @foreach ($project->technologies as $technology)
+                            <li class="list-group-item rounded-1">{{ $technology->title }}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
 
