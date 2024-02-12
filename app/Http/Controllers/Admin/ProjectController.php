@@ -113,8 +113,11 @@ class ProjectController extends Controller
         $project->update($data);
 
         //cambai le check da solo - elimina e inserisce se serve
+        //else nel caso in cui non passo nessuna checkbox - se non hai dati svuota
         if (isset($data['technologies'])) {
             $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->sync([]);
         }
 
         //salvo titolo nuovo per notifica
@@ -128,7 +131,12 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        //salvo titolo per notifica
         $project_title = $project->title;
+
+        //elimino relazioni nella tabella pivot con technologies
+        //del post eliminato svuoto la tabella relazioni
+        $project->technologies()->sync([]);
 
         //cancello immagine se c'è
         if ($project->thumb) {
