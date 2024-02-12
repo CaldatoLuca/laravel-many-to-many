@@ -1,0 +1,51 @@
+@import "./variables.scss";
+
+//resete e prorpetà comuni
+h1 {
+    color: $torquise;
+}
+img {
+    display: block;
+}
+.my-input {
+    border-width: 1px;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+        box-shadow: none;
+        outline: none;
+        border: 1px solid $torquise-transparent;
+    }
+}
+
+//visualizzazione immagine show, edit, create
+.image-show {
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: 550px;
+        object-fit: cover;
+    }
+}
+.image-placeholder {
+    width: 100%;
+    height: 550px;
+    background-color: $torquise;
+    color: $grey-light;
+
+    .fa-x {
+        font-size: 6.25rem;
+    }
+}
+
+//bottone
+.btn-form {
+    background-color: $torquise;
+    color: $grey-light;
+
+    &:hover {
+        background-color: $torquise-transparent;
+        color: $grey-light;
+    }
+}
