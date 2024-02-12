@@ -1,27 +1,25 @@
 ToDo
 
-Bottone elimina immahine in edit
+Bottone elimina immagine in edit
 
-# Relazione one to many
+Filtro project per type
 
-Un type ha tanti post, un post ha solo un type
+# Relazione many to many
 
--   creo migrazione per fare tabella types
+Una technology ha tanti project, un project ha tante technology
 
--   creo model Type
+-   creo il pacchetto per Technology `php artisan make:model -rmsR` name Technology
 
--   seeder per popolare tabella types
+-   facendo coi però devo spostare il controller in admin e cambiare l' import nel model
 
--   migration per creare la foreign key nella tabella projects
+-   inserisco i campi title e slug nella migration e la runno
 
--   modifica seedere project per dare random type_id
+-   creo il seeder con le technology
 
--   faccio si che al cancellare di un type i project con quel type abbiano type null
+-   creo migrazione per tabella pivot, nomi tabelle in ordine alfabetico (`php artisan make:migration create_project_technology_table`)
 
--   istruisco i model per dire il tipo di relazione 1 a n (1 type ha n projects)
+-   istruisco i model in base alla relazione
 
--   passo a create/edit i types
+-   gestisco inserimento e creazione delle technoly in create project
 
--   valido type
-
--   select per vedere e selezionare type
+-   semplice parte di crud e gestione dei valori e dei casi, avendo un array derivante da una select dovrò agire diversamente (ciclo sull' array per avere ogni technology associata)
