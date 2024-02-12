@@ -69,7 +69,11 @@
                                         <div class="form-check form-check-inline">
                                             <input class="my-input form-check-input" type="checkbox"
                                                 id="technology-{{ $technology->id }}" value="{{ $technology->id }}"
-                                                name="technologies[]"> {{-- mando un array --}}
+                                                name="technologies[]" {{-- se otteno errori mantengo selezionate le checkbox
+                                                    in_array cerca un elemento in un array e da true
+                                                    passo array vuoto se non seleziono nesuna check --}}
+                                                {{ in_array($technology->id, old('technologies', [])) ? 'checked' : '' }}>
+                                            {{-- mando un array --}}
                                             <label class="form-check-label"
                                                 for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
                                         </div>
