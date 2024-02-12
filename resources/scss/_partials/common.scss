@@ -49,3 +49,16 @@ img {
         color: $grey-light;
     }
 }
+
+.btn-back {
+    background-color: $torquise;
+    color: $grey-light;
+
+    &:hover {
+        background-color: $torquise-transparent;
+        color: $grey-light;
+    }
+    a {
+        color: $grey-light;
+    }
+}

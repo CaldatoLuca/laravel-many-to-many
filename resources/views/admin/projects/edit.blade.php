@@ -7,8 +7,11 @@
 @section('content')
     <div id="edit" class="container h-100">
         <div class="row h-100">
-            <div class="col-12 d-flex  align-items-center justify-content-start">
+            <div class="col-12 d-flex  align-items-center justify-content-between">
                 <h1>Edit: {{ $project->title }}</h1>
+                <a class="btn btn-back" href="{{ route('admin.projects.index') }}">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
             </div>
 
             <div class="col-12">
