@@ -25,7 +25,8 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|unique:App\Models\Project,title|max:50',
             'description' => 'nullable|string|max:1000',
             'thumb' => 'nullable|image|max:2048', //2mega
-            'type_id' => 'required|exists:types,id' //esiste nella tabella types, colonna id?
+            'type_id' => 'required|exists:types,id', //esiste nella tabella types, colonna id?
+            'technologies' => 'nullable|exists:technologies,id'
         ];
     }
 }

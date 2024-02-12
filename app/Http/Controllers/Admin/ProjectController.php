@@ -54,9 +54,15 @@ class ProjectController extends Controller
         if (isset($data['thumb'])) {
             $project->thumb = Storage::put('uploads', $data['thumb']);
         }
-
+        //non ho id 
         $project->save();
+        //ho id quidi posso inserire technologies - lo fa sync
 
+        //connetto i tag alla tabella pivot projects_technologies - sync crea il collegamento
+        //aggiunge le chakbox selezionate
+        if (isset($data['technologies'])) {
+            $project->technologies()->sync($data['technologies']);
+        }
         return redirect()->route('admin.projects.index')->with('message_create', "Project '$project->title' created");
     }
 

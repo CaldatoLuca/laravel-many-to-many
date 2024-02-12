@@ -9,7 +9,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['slug', 'thumb'];
+    protected $guarded = ['slug', 'thumb', 'technologies'];
 
     //relazione con type
     //singolare perchè ha solo un type
