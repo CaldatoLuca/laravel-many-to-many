@@ -67,7 +67,6 @@
 }
 
 //Index.create
-
 #create,
 #create_type,
 #edit {
@@ -89,5 +88,14 @@
         .fa-x {
             font-size: 6.25rem;
         }
+    }
+}
+
+//Index.show
+#show {
+    .list-group-item {
+        background-color: $torquise;
+        color: $grey-light;
+        font-weight: bold;
     }
 }
