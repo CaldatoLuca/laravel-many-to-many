@@ -54,6 +54,7 @@ class ProjectController extends Controller
         if (isset($data['thumb'])) {
             $project->thumb = Storage::put('uploads', $data['thumb']);
         }
+
         $project->save();
 
         return redirect()->route('admin.projects.index')->with('message_create', "Project '$project->title' created");
