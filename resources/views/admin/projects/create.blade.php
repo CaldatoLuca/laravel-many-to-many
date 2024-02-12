@@ -67,9 +67,9 @@
                                 <div class="input-group">
                                     @foreach ($technologies as $technology)
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox"
+                                            <input class="my-input form-check-input" type="checkbox"
                                                 id="technology-{{ $technology->id }}" value="{{ $technology->id }}"
-                                                name="technologies []"> {{-- mando un array --}}
+                                                name="technologies[]"> {{-- mando un array --}}
                                             <label class="form-check-label"
                                                 for="technology-{{ $technology->id }}">{{ $technology->title }}</label>
                                         </div>
