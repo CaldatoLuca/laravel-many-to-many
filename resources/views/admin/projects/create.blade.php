@@ -36,8 +36,6 @@
                                         id="project-title" aria-describedby="basic-addon3 basic-addon4" name="title"
                                         value="{{ old('title') }}" required>
                                 </div>
-
-
                             </div>
 
                             {{-- descrizione --}}
@@ -56,24 +54,25 @@
                                 </div>
                             </div>
 
-                            {{-- types --}}
+                            {{-- technologies --}}
                             <div class="mb-3">
-                                <label for="project-type" class="form-label d-flex justify-content-between ">
-                                    Select Type
-                                    {{-- errore descrizione --}}
-                                    @error('type_id')
+                                <label class="form-label d-flex justify-content-between ">
+                                    Technologies
+                                    {{-- errore url immagine --}}
+                                    @error('technologies')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </label>
                                 {{-- input --}}
-                                <select class="my-input form-select @error('type_id') is-invalid @enderror"
-                                    aria-label="Default select example" name="type_id">
-                                    <option selected>No Type Selected</option>
-                                    @foreach ($types as $type)
-                                        <option value="{{ $type->id }}"
-                                            @if (old('type_id') == $type->id) selected @endif>{{ $type->title }}</option>
+                                <div class="input-group">
+                                    @foreach ($technologies as $technology)
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                value="{{ $technology->id }}" name="technologies">
+                                            <label class="form-check-label">{{ $technology->title }}</label>
+                                        </div>
                                     @endforeach
-                                </select>
+                                </div>
                             </div>
 
                             {{-- bottone di invio --}}
@@ -81,6 +80,7 @@
                         </div>
 
                         <div class="col-6">
+
                             {{--  immagine --}}
                             <div class="mb-3">
                                 <label for="project-img" class="form-label d-flex justify-content-between ">
@@ -102,13 +102,33 @@
                             </div>
 
                             {{-- mostro  l'immagine del progetto se esiste, altrimenti una placeholder --}}
-                            <div class="d-flex justify-content-center align-items-center flex-column">
+                            <div class="d-flex justify-content-center align-items-center flex-column mb-3">
 
                                 <div class="mb-2 has-image"></div>
                                 <div
                                     class="image-preview image-placeholder d-flex justify-content-center align-items-center rounded-2 bg-danger">
 
                                 </div>
+                            </div>
+
+                            {{-- types --}}
+                            <div class="mb-3">
+                                <label for="project-type" class="form-label d-flex justify-content-between ">
+                                    Select Type
+                                    {{-- errore descrizione --}}
+                                    @error('type_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </label>
+                                {{-- input --}}
+                                <select class="my-input form-select @error('type_id') is-invalid @enderror"
+                                    aria-label="Default select example" name="type_id">
+                                    <option selected>No Type Selected</option>
+                                    @foreach ($types as $type)
+                                        <option value="{{ $type->id }}"
+                                            @if (old('type_id') == $type->id) selected @endif>{{ $type->title }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
