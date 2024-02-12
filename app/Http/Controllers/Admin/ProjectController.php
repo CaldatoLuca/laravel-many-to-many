@@ -63,6 +63,7 @@ class ProjectController extends Controller
         if (isset($data['technologies'])) {
             $project->technologies()->sync($data['technologies']);
         }
+
         return redirect()->route('admin.projects.index')->with('message_create', "Project '$project->title' created");
     }
 
@@ -108,11 +109,15 @@ class ProjectController extends Controller
             $project->thumb = Storage::put('uploads', $data['thumb']);
         }
 
-
-
         //aggiorna tutto tranne slug, ci ho pensato io
         $project->update($data);
 
+        //cambai le check da solo - elimina e inserisce se serve
+        if (isset($data['technologies'])) {
+            $project->technologies()->sync($data['technologies']);
+        }
+
+        //salvo titolo nuovo per notifica
         $project_title = $project->title;
 
         return redirect()->route('admin.projects.show', $project)->with('message_update', "Project '$project_title' modified");;
