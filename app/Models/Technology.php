@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Technology extends Model
 {
     use HasFactory;
+
+    //relazione con projects via tabella pivot
+    //plurale perchè puo a vere + projects
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
 }

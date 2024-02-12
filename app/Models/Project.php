@@ -11,10 +11,18 @@ class Project extends Model
 
     protected $guarded = ['slug', 'thumb'];
 
+    //relazione con type
     //singolare perchè ha solo un type
     public function type()
     {
         //ha solo un type
         return $this->belongsTo(Type::class);
+    }
+
+    //relazione con technology via tabella pivot
+    //plurale perchè puo a vere + technology
+    public function technologies()
+    {
+        return $this->belongsToMany(Technology::class);
     }
 }
