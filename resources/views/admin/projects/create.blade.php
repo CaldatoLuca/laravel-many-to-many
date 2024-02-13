@@ -43,6 +43,25 @@
                                 </div>
                             </div>
 
+                            {{-- url repo --}}
+                            <div class="mb-3">
+                                <label for="project-github-url" class="form-label d-flex justify-content-between ">
+                                    Project Repo
+                                    {{-- errore titolo --}}
+                                    @error('github_url')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </label>
+                                <div class="input-group">
+
+                                    {{-- input --}}
+                                    <input type="text"
+                                        class="my-input form-control @error('github_url') is-invalid @enderror"
+                                        id="project-github-url" aria-describedby="basic-addon3 basic-addon4"
+                                        name="github_url" value="{{ old('github_url') }}">
+                                </div>
+                            </div>
+
                             {{-- descrizione --}}
                             <div class="mb-3">
                                 <label for="project-description" class="form-label d-flex justify-content-between ">
@@ -91,6 +110,25 @@
                         </div>
 
                         <div class="col-6">
+                            {{-- types --}}
+                            <div class="mb-3">
+                                <label for="project-type" class="form-label d-flex justify-content-between ">
+                                    Select Type
+                                    {{-- errore descrizione --}}
+                                    @error('type_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </label>
+                                {{-- input --}}
+                                <select class="my-input form-select @error('type_id') is-invalid @enderror"
+                                    aria-label="Default select example" name="type_id">
+                                    <option selected>No Type Selected</option>
+                                    @foreach ($types as $type)
+                                        <option value="{{ $type->id }}"
+                                            @if (old('type_id') == $type->id) selected @endif>{{ $type->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                             {{--  immagine --}}
                             <div class="mb-3">
@@ -120,26 +158,6 @@
                                     class="image-preview image-placeholder d-flex justify-content-center align-items-center rounded-2 bg-danger">
 
                                 </div>
-                            </div>
-
-                            {{-- types --}}
-                            <div class="mb-3">
-                                <label for="project-type" class="form-label d-flex justify-content-between ">
-                                    Select Type
-                                    {{-- errore descrizione --}}
-                                    @error('type_id')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </label>
-                                {{-- input --}}
-                                <select class="my-input form-select @error('type_id') is-invalid @enderror"
-                                    aria-label="Default select example" name="type_id">
-                                    <option selected>No Type Selected</option>
-                                    @foreach ($types as $type)
-                                        <option value="{{ $type->id }}"
-                                            @if (old('type_id') == $type->id) selected @endif>{{ $type->title }}</option>
-                                    @endforeach
-                                </select>
                             </div>
                         </div>
 

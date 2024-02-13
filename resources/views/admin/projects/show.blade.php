@@ -36,6 +36,14 @@
                         @endforeach
                     </ul>
                 </div>
+
+                {{-- repo --}}
+                <div class="type">
+                    <h3>Github Repo:</h3>
+                    <div class="mb-3">
+                        <a href="{{ $project->github_url }}">Repo Github</a>
+                    </div>
+                </div>
             </div>
 
             {{-- immagine --}}
