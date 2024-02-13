@@ -3,6 +3,27 @@
 @import "./_partials/variables.scss";
 @import "./_partials/common.scss";
 
+//dashboard
+.dasboard-style {
+    background-color: $black;
+    color: $grey-light;
+    .warning-dash {
+        color: $grey-light;
+        a {
+            color: $torquise;
+        }
+    }
+    .list-group {
+        background-color: $grey-light;
+        border-radius: 0%;
+        .list-group-item {
+            background-color: $grey-light;
+            color: $black;
+            border-radius: 0%;
+        }
+    }
+}
+
 //Admin.blade
 #admin {
     background-color: $torquise;
@@ -53,7 +74,8 @@
 //Index.blade
 #index,
 #index-type,
-#index-tech {
+#index-tech,
+.dasboard-style {
     th,
     td {
         background-color: $grey-light;
