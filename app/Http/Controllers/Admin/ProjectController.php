@@ -64,6 +64,9 @@ class ProjectController extends Controller
             $project->technologies()->sync($data['technologies']);
         }
 
+        session(['message_create' => '...']);
+
+
         return redirect()->route('admin.projects.index')->with('message_create', "Project '$project->title' created");
     }
 
@@ -123,6 +126,8 @@ class ProjectController extends Controller
         //salvo titolo nuovo per notifica
         $project_title = $project->title;
 
+        session(['message_update' => '...']);
+
         return redirect()->route('admin.projects.show', $project)->with('message_update', "Project '$project_title' modified");
     }
 
@@ -144,6 +149,9 @@ class ProjectController extends Controller
         }
 
         $project->delete();
+
+        session(['message_delete' => '...']);
+
 
         return redirect()->route('admin.projects.index')->with('message_delete', "Project '$project_title' eliminated");
     }

@@ -12,6 +12,14 @@ class DashboardController extends Controller
     {
         $projects = Project::all();
 
-        return view('dashboard', compact('projects'));
+        $update = session('message_update');
+
+        $notifications = ['ciao', 'come'];
+
+        if ($update !== '...') {
+            $notifications[] = $update;
+        }
+
+        return view('dashboard', compact('projects', 'notifications'));
     }
 }

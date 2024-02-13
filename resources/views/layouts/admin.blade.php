@@ -151,7 +151,7 @@
         {{-- notifications --}}
         <div class="notification">
             {{-- avviso creazione project --}}
-            @if (session('message_create'))
+            @if (session('message_create') && session('message_create') !== '...')
                 <div class="toast align-items-center border-0 fade show" role="alert" aria-live="assertive"
                     aria-atomic="true">
                     <div class="d-flex">
@@ -165,7 +165,7 @@
             @endif
 
             {{-- avviso cancellazione project --}}
-            @if (session('message_delete'))
+            @if (session('message_delete') && session('message_delete') !== '...')
                 <div class="toast align-items-center border-0 fade show" role="alert" aria-live="assertive"
                     aria-atomic="true">
                     <div class="d-flex">
@@ -180,7 +180,7 @@
             @endif
 
             {{-- avviso modifica project --}}
-            @if (session('message_update'))
+            @if (session('message_update') && session('message_update') !== '...')
                 <div class="toast align-items-center border-0 fade show" role="alert" aria-live="assertive"
                     aria-atomic="true">
                     <div class="d-flex">
