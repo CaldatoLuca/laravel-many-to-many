@@ -123,7 +123,7 @@ class ProjectController extends Controller
         //salvo titolo nuovo per notifica
         $project_title = $project->title;
 
-        return redirect()->route('admin.projects.show', $project)->with('message_update', "Project '$project_title' modified");;
+        return redirect()->route('admin.projects.show', $project)->with('message_update', "Project '$project_title' modified");
     }
 
     /**

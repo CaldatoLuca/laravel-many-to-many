@@ -114,6 +114,20 @@
                                     <i class="fa-solid fa-plus fa-lg fa-fw"></i> New Type
                                 </a>
                             </li>
+
+                            {{-- TECHNOLOGIES --}}
+                            <li class="nav-item rounded-1 overflow-hidden">
+                                <div class="nav-link subtitle fw-b">
+                                    Technologies
+                                </div>
+                            </li>
+                            {{-- technology list --}}
+                            <li class="nav-item rounded-1 overflow-hidden">
+                                <a class="nav-link {{ Route::currentRouteName() == 'admin.technologies.index' ? 'link-selected' : '' }}"
+                                    href="{{ route('admin.technologies.index') }}">
+                                    <i class="fa-solid fa-folder fa-lg fa-fw"></i> Technologies List
+                                </a>
+                            </li>
                         </ul>
                     </div>
 

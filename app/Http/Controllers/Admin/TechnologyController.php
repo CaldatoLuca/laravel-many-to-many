@@ -3,22 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTypeRequest;
-use App\Models\Type;
+use App\Models\Technology;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-
-class TypeController extends Controller
+class TechnologyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.types.index_types', compact('types'));
+        return view('admin.technologies.index_tech', compact('technologies'));
     }
 
     /**
@@ -26,25 +23,15 @@ class TypeController extends Controller
      */
     public function create()
     {
-        return view('admin.types.create_type');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTypeRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
-
-        $type = new Type();
-        $type->fill($data);
-
-        $type->slug = Str::of($type->title)->slug('-');
-
-
-        $type->save();
-
-        return redirect()->route('admin.types.index')->with('message_create', "Type '$type->title' created");
+        //
     }
 
     /**
@@ -74,12 +61,8 @@ class TypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Type $type)
+    public function destroy(string $id)
     {
-        $type_title = $type->title;
-
-        $type->delete();
-
-        return redirect()->route('admin.types.index')->with('message_delete', "Type '$type_title' eliminated");
+        //
     }
 }

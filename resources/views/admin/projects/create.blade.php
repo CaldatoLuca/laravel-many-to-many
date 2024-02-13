@@ -7,13 +7,18 @@
 @section('content')
     <div id="create" class="container h-100">
         <div class="row h-100">
-            <div class="col-12 d-flex  align-items-center justify-content-start">
+            <div class="col-12 d-flex align-items-center justify-content-between">
                 <h1 class="mb-5">New Project</h1>
+                {{-- back button --}}
+                <a class="btn btn-back" href="{{ route('admin.projects.index') }}">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
             </div>
 
 
             <div class="col-12">
-                <form action="{{ route('admin.projects.store') }}" method="POST" class="h-100" enctype="multipart/form-data">
+                <form action="{{ route('admin.projects.store') }}" method="POST" class="h-100"
+                    enctype="multipart/form-data">
 
                     {{-- token di laravel per controllo --}}
                     @csrf
