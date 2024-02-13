@@ -36,7 +36,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('types', TypeController::class)->parameters(['types' => 'type:slug']);
 
     //Rotte technology
-    Route::resource('technologies', TechnologyController::class);
+    Route::resource('technologies', TechnologyController::class)->parameters(['technologies' => 'technologies:slug']);
 });
 
 // Route::middleware('auth')->group(function () {

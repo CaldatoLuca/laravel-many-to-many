@@ -9,6 +9,8 @@ class Technology extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['slug'];
+
     //relazione con projects via tabella pivot
     //plurale perchè puo a vere + projects
     public function projects()

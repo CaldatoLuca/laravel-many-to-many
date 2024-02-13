@@ -128,6 +128,13 @@
                                     <i class="fa-solid fa-folder fa-lg fa-fw"></i> Technologies List
                                 </a>
                             </li>
+                            {{-- create technology --}}
+                            <li class="nav-item rounded-1 overflow-hidden">
+                                <a class="nav-link {{ Route::currentRouteName() == 'admin.technologies.create' ? 'link-selected' : '' }}"
+                                    href="{{ route('admin.technologies.create') }}">
+                                    <i class="fa-solid fa-plus fa-lg fa-fw"></i> New Technology
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
