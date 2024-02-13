@@ -6,7 +6,7 @@
 
 @section('content')
     <div id="index-type" class="container">
-        <h1 class="mb-5">Types List</h1>
+        <h1>Types List</h1>
 
         @if ($types != '[]')
             <table class="table">

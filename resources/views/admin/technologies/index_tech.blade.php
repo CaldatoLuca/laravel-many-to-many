@@ -6,7 +6,7 @@
 
 @section('content')
     <div id="index-tech" class="container">
-        <h1 class="mb-5">Technology List</h1>
+        <h1>Technology List</h1>
 
         @if ($technologies != '[]')
             <table class="table">

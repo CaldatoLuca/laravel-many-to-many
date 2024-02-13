@@ -8,7 +8,7 @@
     <div id="create" class="container h-100">
         <div class="row h-100">
             <div class="col-12 d-flex align-items-center justify-content-between">
-                <h1 class="mb-5">New Project</h1>
+                <h1>New Project</h1>
                 {{-- back button --}}
                 <a class="btn btn-back" href="{{ route('admin.projects.index') }}">
                     <i class="fa-solid fa-arrow-left"></i>
