@@ -14,7 +14,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
-                        {{-- <th scope="col" class="text-center">Delete</th> --}}
+                        <th scope="col" class="text-center">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,19 +26,19 @@
                             {{-- titolo --}}
                             <td>{{ $technology->title }}</td>
 
-                            {{--
+                            {{-- cancellazione --}}
                             <td class="text-center">
 
-                                <form action="{{ route('admin.types.destroy', $type->slug) }}" method="POST">
+                                <form action="{{ route('admin.technologies.destroy', $technology) }}" method="POST">
+
                                     @csrf
 
-                                     aggiungo il metodo delete 
                                     @method('DELETE')
 
                                     <button type="submit" class="btn"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </td>
-                            --}}
+
                         </tr>
                     @endforeach
                 </tbody>

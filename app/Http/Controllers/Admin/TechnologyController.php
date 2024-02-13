@@ -74,8 +74,13 @@ class TechnologyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Technology $technology)
     {
-        //
+        $technology_title = $technology->title;
+
+        // Elimina la Technology (e i record associati nella tabella di relazione many-to-many verranno eliminati automaticamente)
+        $technology->delete();
+
+        return redirect()->route('admin.technologies.index')->with('message_delete', "Technology '$technology_title' eliminated");
     }
 }
