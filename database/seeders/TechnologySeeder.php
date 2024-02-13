@@ -17,7 +17,7 @@ class TechnologySeeder extends Seeder
     {
         $technologies = ['HTML', 'CSS', 'SASS', 'Bootstrap', 'JavaScript', 'VueJs', 'Vite', 'Axios', 'PHP', 'Laravel'];
 
-        Technology::truncate();
+        // Technology::truncate();
 
         foreach ($technologies as $technology) {
 
