@@ -14,7 +14,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Title</th>
-                        <th scope="col">Slug</th>
+                        <th scope="col" class="text-center">Repo Github</th>
                         <th scope="col" class="text-center">Type</th>
                         <th scope="col" class="text-center">Thumb</th>
                         <th scope="col" class="text-center">View More</th>
@@ -31,8 +31,14 @@
                             {{-- titolo --}}
                             <td>{{ $project->title }}</td>
 
-                            {{-- slug --}}
-                            <td>{{ $project->slug }}</td>
+                            {{-- repo --}}
+                            <td class="text-center">
+                                @if ($project->github_url)
+                                    <a href="{{ $project->github_url }}" target="_blank">Repo</a>
+                                @else
+                                    <i class="fa-solid fa-square-xmark"></i>
+                                @endif
+                            </td>
 
                             {{-- type --}}
                             <td class="text-center">

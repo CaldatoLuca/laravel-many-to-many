@@ -1,16 +1,20 @@
 @extends('layouts.admin')
 
+@section('title')
+    - Dashboard
+@endsection
+
 @section('content')
-    <div class="container h-100">
-        <div class="row justify-content-between h-100">
-            {{-- welcome --}}
-            <div class="col-12 d-flex align-items-center ">
-                <h1>Welcome {{ Auth::user()->name }}</h1>
-            </div>
+    <div class="container h-100 py-5">
+
+        {{-- welcome --}}
+        <h1 class="mb-5">Welcome {{ Auth::user()->name }}</h1>
+
+        <div class="row justify-content-between">
 
             {{-- latest projects --}}
-            <div class="col-8 rounded-2 dasboard-style p-3 mb-3 d-flex flex-column justify-content-around ">
-                <div class="d-flex justify-content-between align-items-center">
+            <div class="col-8 rounded-2 dasboard-style p-4 mb-3 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-mine-8">
                     <h2>Your latest Projects</h2>
                     {{-- back button --}}
                     <a class="btn btn-back" href="{{ route('admin.projects.index') }}">
@@ -32,7 +36,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($projects as $key => $project)
-                                    @if ($key > count($projects) - 7)
+                                    @if ($key > count($projects) - 6)
                                         <tr>
                                             {{-- id --}}
                                             <td>{{ $project->id }}</td>
@@ -114,22 +118,21 @@
             </div>
 
             {{-- latest activities --}}
-            <div class="col-3 rounded-2 dasboard-style p-3 mb-3 d-flex flex-column pt-5">
-                <h2 class="mb-5">Latest Activities</h2>
-
+            <div class="col-3 rounded-2 dasboard-style p-4 mb-3 d-flex flex-column">
+                <h2 class="mb-mine-3">Latest Activities</h2>
                 @if ($notifications)
                     <ul class="list-group">
                         @foreach ($notifications as $key => $notification)
-                            @if ($key > count($notifications) - 8)
+                            @if ($key > count($notifications) - 7)
                                 <li class="list-group-item">{{ $notification }}</li>
                             @endif
                         @endforeach
                     </ul>
+                @else
+                    <ul class="list-group">
+                        <li class="list-group-item">No recent activity detected</li>
+                    </ul>
                 @endif
-            </div>
-
-            <div class="col-12 rounded-2 dasboard-style p-3">
-
             </div>
         </div>
 

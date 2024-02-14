@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create Technology
+    - Create Technology
 @endsection
 
 @section('content')

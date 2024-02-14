@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create
+    - Create
 @endsection
 
 @section('content')
