@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
@@ -12,14 +13,12 @@ class DashboardController extends Controller
     {
         $projects = Project::all();
 
-        $update = session('message_update');
+        // Recupera i messaggi di notifica dalla sessione
+        $notifications = Session::get('dashboard_notifications', []);
 
-        $notifications = ['ciao', 'come'];
+        // Cancella i messaggi dalla sessione dopo averli recuperati
+        Session::forget('dashboard_notifications');
 
-        if ($update !== '...') {
-            $notifications[] = $update;
-        }
-
-        return view('dashboard', compact('projects', 'notifications'));
+        return view('dashboard', compact('projects'))->with('notifications', $notifications);
     }
 }

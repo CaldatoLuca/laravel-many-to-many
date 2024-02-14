@@ -7,6 +7,8 @@ use App\Http\Requests\StoreTypeRequest;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
+
 
 
 class TypeController extends Controller
@@ -44,6 +46,9 @@ class TypeController extends Controller
 
         $type->save();
 
+        // Memorizza il messaggio di notifica nella sessione
+        Session::push('dashboard_notifications', "Type '$type->title' created");
+
         return redirect()->route('admin.types.index')->with('message_create', "Type '$type->title' created");
     }
 
@@ -79,6 +84,9 @@ class TypeController extends Controller
         $type_title = $type->title;
 
         $type->delete();
+
+        // Memorizza il messaggio di notifica nella sessione
+        Session::push('dashboard_notifications', "Type '$type_title' eliminated");
 
         return redirect()->route('admin.types.index')->with('message_delete', "Type '$type_title' eliminated");
     }

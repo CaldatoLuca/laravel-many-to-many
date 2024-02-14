@@ -11,7 +11,7 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Session;
 
 class ProjectController extends Controller
 {
@@ -64,8 +64,8 @@ class ProjectController extends Controller
             $project->technologies()->sync($data['technologies']);
         }
 
-        session(['message_create' => '...']);
-
+        // Memorizza il messaggio di notifica nella sessione
+        Session::push('dashboard_notifications', "Project '$project->title' created");
 
         return redirect()->route('admin.projects.index')->with('message_create', "Project '$project->title' created");
     }
@@ -126,7 +126,8 @@ class ProjectController extends Controller
         //salvo titolo nuovo per notifica
         $project_title = $project->title;
 
-        session(['message_update' => '...']);
+        // Memorizza il messaggio di notifica nella sessione
+        Session::push('dashboard_notifications', "Project '$project_title' modified");
 
         return redirect()->route('admin.projects.show', $project)->with('message_update', "Project '$project_title' modified");
     }
@@ -150,8 +151,8 @@ class ProjectController extends Controller
 
         $project->delete();
 
-        session(['message_delete' => '...']);
-
+        // Memorizza il messaggio di notifica nella sessione
+        Session::push('dashboard_notifications', "Project '$project_title' eliminated");
 
         return redirect()->route('admin.projects.index')->with('message_delete', "Project '$project_title' eliminated");
     }

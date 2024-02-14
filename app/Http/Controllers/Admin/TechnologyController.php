@@ -7,6 +7,8 @@ use App\Http\Requests\StoreTechnologyRequest;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
+
 
 
 class TechnologyController extends Controller
@@ -44,6 +46,9 @@ class TechnologyController extends Controller
 
         $technology->save();
 
+        // Memorizza il messaggio di notifica nella sessione
+        Session::push('dashboard_notifications', "Technology '$technology->title' created");
+
         return redirect()->route('admin.technologies.index')->with('message_create', "Technology '$technology->title' created");
     }
 
@@ -80,6 +85,9 @@ class TechnologyController extends Controller
 
         // Elimina la Technology (e i record associati nella tabella di relazione many-to-many verranno eliminati automaticamente)
         $technology->delete();
+
+        // Memorizza il messaggio di notifica nella sessione
+        Session::push('dashboard_notifications', "Technology '$technology_title' eliminated");
 
         return redirect()->route('admin.technologies.index')->with('message_delete', "Technology '$technology_title' eliminated");
     }

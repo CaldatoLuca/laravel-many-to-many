@@ -9,8 +9,8 @@
             </div>
 
             {{-- latest projects --}}
-            <div class="col-8 rounded-2 dasboard-style p-3 mb-3 d-flex flex-column justify-content-around">
-                <div class="mb-3 d-flex justify-content-between align-items-center ">
+            <div class="col-8 rounded-2 dasboard-style p-3 mb-3 d-flex flex-column justify-content-around ">
+                <div class="d-flex justify-content-between align-items-center">
                     <h2>Your latest Projects</h2>
                     {{-- back button --}}
                     <a class="btn btn-back" href="{{ route('admin.projects.index') }}">
@@ -32,7 +32,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($projects as $key => $project)
-                                    @if ($key > count($projects) - 6)
+                                    @if ($key > count($projects) - 7)
                                         <tr>
                                             {{-- id --}}
                                             <td>{{ $project->id }}</td>
@@ -114,24 +114,26 @@
             </div>
 
             {{-- latest activities --}}
-            <div class="col-3 rounded-2 dasboard-style p-3 mb-3 d-flex flex-column justify-content-around">
-                <h2 class="">Latest Activities</h2>
+            <div class="col-3 rounded-2 dasboard-style p-3 mb-3 d-flex flex-column pt-5">
+                <h2 class="mb-5">Latest Activities</h2>
 
-                {{-- lista --}}
-                <ul class="list-group">
-                    @foreach ($notifications as $notification)
-                        <li class="list-group-item">{{ $notification }}</li>
-                    @endforeach
-                </ul>
+                @if ($notifications)
+                    <ul class="list-group">
+                        @foreach ($notifications as $key => $notification)
+                            @if ($key > count($notifications) - 8)
+                                <li class="list-group-item">{{ $notification }}</li>
+                            @endif
+                        @endforeach
+                    </ul>
+                @endif
             </div>
 
             <div class="col-12 rounded-2 dasboard-style p-3">
-                <div>c</div>
-                <div>c</div>
-                <div>c</div>
-                <div>c</div>
+
             </div>
         </div>
+
+    </div>
 
     </div>
 @endsection
