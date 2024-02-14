@@ -38,14 +38,16 @@
                 <div class="description">
                     <h4>Description:</h4>
                     @if ($project->description)
-                        <div class="mb-3">{{ $project->description }}</div>
+                        <p>{{ $project->description }}</p>
                     @else
-                        <div class="mb-3">This Project has no description</div>
+                        <div class="mb-3">
+                            This Project has no description
+                        </div>
                     @endif
                 </div>
 
                 {{-- type --}}
-                <div class="type d-flex">
+                <div class="type mb-3">
                     <h5>Type: {{ $project->type?->title ?: 'This project has no types' }}</h5>
                 </div>
 

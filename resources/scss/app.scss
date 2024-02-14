@@ -95,7 +95,7 @@
     }
 }
 
-//Index.create
+//Create.blade
 #create,
 #create_type,
 #edit {
@@ -120,11 +120,17 @@
     }
 }
 
-//Index.show
+//Show.blade
 #show {
     .list-group-item {
         background-color: $torquise;
         color: $grey-light;
         font-weight: bold;
+    }
+    .description {
+        p {
+            word-wrap: break-word;
+            max-width: 100%;
+        }
     }
 }
